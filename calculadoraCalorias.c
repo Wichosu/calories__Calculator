@@ -11,20 +11,16 @@ int main(){
 	//double calorias[19] = {178, 258, 150, 130, 150, 108, 249, 255, 314, 363, 270, 378, 315, 325, 210, 300, 250, 261, 93}, quemadas;
 	//char* ejercicios[19] = {"Aerobic", "Baloncesto", "Bicicleta", "Bailar", "Jardineria", "Golf", "Hockey", "Montar Caballo", "Patinar sobre hielo", "Judo", "Montanierismo", "Remar",
 							//"Patinar Sobre Ruedas", "Correr", "Bajar Escaleras", "Subir Escaleras", "Nadar", "Tenis", "Voleibol"};
-	char* dias[8] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};	
-	char* diasElegidos[8];			
+	char* dias[7] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};	
+	char* diasElegidos[7];
+	int diasELen;			
 	//int rutinaE[19], duracion[19], semanas[4];
 	
-	printf("Length: %d\n", length(dias));
+	//printf("Length: %d\n", length(dias));
 	
-	diasConRutina(dias, diasElegidos);
+	diasELen = diasConRutina(dias, diasElegidos);
 	
-	for(int i = 0; i < (length(diasElegidos)); i++){
-		printf("Length: %d\n", length(diasElegidos));
-		printf("%s\n", diasElegidos[i]);
-	}
-	
-	printf("Lenght: %d\n", length(diasElegidos));
+	//printf("Lenght: %d\n", length(diasElegidos));
 	
 	//obtenerRutina();
 	

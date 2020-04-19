@@ -20,17 +20,17 @@ void eraseString(char* str[], int len, int position){
 	str[i] = 0;
 }
 
-void diasConRutina(char* dias[], char* diasElegidos[]){
-	char auxString[14];
-	int i = 0;
-	printf("Selecciona los dias de la semana en los que realizas la actividad\n");
-	printf("Ejemplo: 1,5,7 asegurate de separarlos con una ',' y no dejar espacios\n");
+int diasConRutina(char* dias[], char* diasElegidos[]){
+	int i = 1, x = 0;
+	printf("Selecciona los dias de la semana en los que realizas la actividad\npresiona 0 para ir a las actividades\n");
 	mostrarDias(dias);
-	scanf("%s",auxString);
-	char* tok = strtok(auxString, ",");
-	while(tok != NULL){
-		diasElegidos[i++] = dias[atoi(tok)-1];
-		tok = strtok(NULL, ",");
+	while(i > 0){
+		scanf("%d",&i);
+		diasElegidos[x] = dias[i-1];
+		if(*diasElegidos[x] != '\0'){
+			printf("Dias Elegidos: %s\n", diasElegidos[x++]);
+		}
 	}
+	return x--;
 }
 
