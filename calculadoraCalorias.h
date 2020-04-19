@@ -2,6 +2,11 @@
 #include <stdlib.h>
 #include <string.h>
 
+void initCal(double calorias[]){
+	for(int i = 0; calorias[i] ; i++)
+		calorias[i] = calorias[i] / 30;
+}
+
 int length(char* s[]){
 	int i;
 	for(i = 0; *s++; i++);
@@ -9,8 +14,9 @@ int length(char* s[]){
 }
 
 void showArray(char* s[], int len){
-	for(int i = 0; i < len; i++)
+	for(int i = 0; i < len; i++){
 		printf("%d.- %s\n", i + 1, s[i]);
+	}
 }
 
 void eraseString(char* str[], int len, int position){
@@ -26,23 +32,39 @@ int diasConRutina(char* dias[], char* diasElegidos[]){
 	showArray(dias,7);
 	while(i > 0){
 		scanf("%d",&i);
+		//possible change in while structure if i != 0 do everything below scanf
 		if(i == 0){
 			break;
 		}
 		diasElegidos[x] = dias[i-1];
 		if(*diasElegidos[x] != '\0'){
-			printf("El Valor de x es %d\n", x);
 			printf("Dias Elegidos: %s\n", diasElegidos[x++]);
 		}
 	}
 	return x--;
 }
 //Get the input for time and name of the exercise for each day. len - 1
-void obtenerRutina(char* dia[], char* ejercicios[], int tiempo[], int dialen){
-	printf("Si llego");
+int obtenerRutina(char* dia[], char* ejercicios[],int rutina[], int tiempo[], int dialen){
+	int x = 0, rutinaux;
 	for(int i = 0; i < dialen; i++){
+		rutinaux = 1;
 		printf("Selecciona los ejercios que realices el dia %s\n", dia[i]);
-		showArray(ejercicios, 19);
+		while(rutinaux > 0){
+			showArray(ejercicios, 19);
+			printf("Para indicar que terminaste tu seleccion ingresa 0\n");
+			scanf("%d", &rutinaux);
+			if(rutinaux > 0){
+				rutina[x] = rutinaux - 1;
+				printf("Ejercicio Seleccionado: %s\n", ejercicios[rutina[x]]);
+				printf("Por cuantos minutos va a realizar el ejercicio:\n");
+				scanf("%d", &tiempo[x]);
+				printf("Tiempo: %d minutos\n", tiempo[x++]);
+			}
+		}	
 	}
+	return x;
 }
 
+double calcularCalorias(double calorias[], int rutina[], int tiempo[]){
+	return 0;
+}

@@ -14,18 +14,18 @@ int main(){
 							"Patinar Sobre Ruedas", "Correr", "Bajar Escaleras", "Subir Escaleras", "Nadar", "Tenis", "Voleibol"};
 	char* dias[7] = {"Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo"};	
 	char* diasElegidos[7];
-	int diasELen;			
-	//int rutinaE[19];
+	int diasELen, lenrd;			
+	int rutinaE[19];
 	int duracion[19];
 	//int semanas[4];
 	
+	//initCal(calorias);
+		
 	diasELen = diasConRutina(dias, diasElegidos);
 	
-	printf("I'm out");
+	lenrd = obtenerRutina(diasElegidos,ejercicios, rutinaE, duracion,diasELen);
 	
-	obtenerRutina(diasElegidos,ejercicios,duracion,diasELen);
-	
-	//calcularCalorias();
+	//quemadas = calcularCalorias(calorias, rutinaE, duracion);
 	
 	//CambiarRutinaSemanal();
 	
