@@ -7,23 +7,10 @@ void initCal(double calorias[]){
 		calorias[i] = calorias[i] / 30;
 }
 
-int length(char* s[]){
-	int i;
-	for(i = 0; *s++; i++);
-	return i;
-}
-
 void showArray(char* s[], int len){
 	for(int i = 0; i < len; i++){
 		printf("%d.- %s\n", i + 1, s[i]);
 	}
-}
-
-void eraseString(char* str[], int len, int position){
-	int i;
-	for(i = position; i < len - 1; i++)
-		str[i] = str[i+1];
-	str[i] = 0;
 }
 
 int diasConRutina(char* dias[], char* diasElegidos[]){
@@ -50,12 +37,12 @@ int obtenerRutina(char* dia[], char* ejercicios[],int rutina[], int tiempo[], in
 		rutinaux = 1;
 		printf("Selecciona los ejercios que realices el dia %s\n", dia[i]);
 		while(rutinaux > 0){
-			showArray(ejercicios, 19);
+			showArray(ejercicios, 19); //Linea problematica segment fault core dumped
 			printf("Para indicar que terminaste tu seleccion ingresa 0\n");
 			scanf("%d", &rutinaux);
 			if(rutinaux > 0){
 				rutina[x] = rutinaux - 1;
-				printf("Ejercicio Seleccionado: %s\n", ejercicios[rutina[x]]);
+				printf("Ejercicio Seleccionado: %s\n", ejercicios[rutinaux-1]); // ejercicios es problematico
 				printf("Por cuantos minutos va a realizar el ejercicio:\n");
 				scanf("%d", &tiempo[x]);
 				printf("Tiempo: %d minutos\n", tiempo[x++]);
@@ -65,6 +52,9 @@ int obtenerRutina(char* dia[], char* ejercicios[],int rutina[], int tiempo[], in
 	return x;
 }
 
-double calcularCalorias(double calorias[], int rutina[], int tiempo[]){
-	return 0;
+void calcularCalorias(double calorias[], int rutina[], int tiempo[], int len, double* quemadas){
+	for(int i = 0; i < len; i++){
+		*quemadas += (calorias[rutina[i]] * tiempo[i]);
+	}
+	*quemadas *= 4;
 }
