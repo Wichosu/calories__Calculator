@@ -3,12 +3,14 @@
 #include <string.h>
 
 void initCal(double calorias[]){
-	for(int i = 0; calorias[i] ; i++)
+	int i;
+	for(i = 0; calorias[i] ; i++)
 		calorias[i] = calorias[i] / 30;
 }
 
 void showArray(char* s[], int len){
-	for(int i = 0; i < len; i++){
+	int i;
+	for(i = 0; i < len; i++){
 		printf("%d.- %s\n", i + 1, s[i]);
 	}
 }
@@ -33,7 +35,8 @@ int diasConRutina(char* dias[], char* diasElegidos[]){
 //Get the input for time and name of the exercise for each day. len - 1
 int obtenerRutina(char* dia[], char* ejercicios[],int rutina[], int tiempo[], int dialen){
 	int x = 0, rutinaux;
-	for(int i = 0; i < dialen; i++){
+	int i;
+	for(i = 0; i < dialen; i++){
 		rutinaux = 1;
 		printf("Selecciona los ejercios que realices el dia %s\n", dia[i]);
 		while(rutinaux > 0){
@@ -53,7 +56,8 @@ int obtenerRutina(char* dia[], char* ejercicios[],int rutina[], int tiempo[], in
 }
 
 void calcularCalorias(double calorias[], int rutina[], int tiempo[], int len, double* quemadas){
-	for(int i = 0; i < len; i++){
+	int i;
+	for(i = 0; i < len; i++){
 		*quemadas += (calorias[rutina[i]] * tiempo[i]);
 	}
 	*quemadas *= 4;
